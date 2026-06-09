@@ -1,0 +1,89 @@
+{
+  "info": {
+    "_postman_id": "111e33c8-17c6-4ed3-b0df-448cbb83e21e",
+    "name": "eCommerce_Order_Validation_Suite",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54470429",
+    "_collection_link": "https://go.postman.co/collection/54470429-111e33c8-17c6-4ed3-b0df-448cbb83e21e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "01_Create_Valid_Product_Record",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Enterprise Automation Laptop\",\n  \"data\": {\n    \"year\": 2026,\n    \"price\": 1499.99,\n    \"CPU_model\": \"Apple M4 Max\",\n    \"Hard_disk_size\": \"1 TB\"\n  }\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://api.restful-api.dev/objects",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "02_Retrieve_Product_By_ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.restful-api.dev/objects/ff8081819d82fab6019eac17eb655666",
+          "protocol": "https",
+          "host": [
+            "api",
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects",
+            "ff8081819d82fab6019eac17eb655666"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "03_Invalid_Data_Type_Fallback",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": 99999,\n  \"data\": \"This should be an object block, not a text string\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://restful-api.dev/objects",
+          "protocol": "https",
+          "host": [
+            "restful-api",
+            "dev"
+          ],
+          "path": [
+            "objects"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
